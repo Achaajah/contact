@@ -193,7 +193,6 @@
         <!-- End Main Header -->
 
         
-        <!-- CONTACT HERO -->
 <section class="contact-hero">
 
   <!-- decorative stars -->
@@ -230,26 +229,27 @@
           dan <span>Terhubung</span>
         </h2>
 
-        <form>
+        <!-- FORM TETAP SAMA VISUALNYA, CUMA DITAMBAH ID + NAME -->
+        <form id="contactForm">
 
           <div class="input-box">
             <img src="assets/nama.svg" alt="">
-            <input type="text" placeholder="Name">
+            <input type="text" name="username" placeholder="Name">
           </div>
 
           <div class="input-box">
             <img src="assets/email.svg" alt="">
-            <input type="email" placeholder="Email">
+            <input type="email" name="email" placeholder="Email">
           </div>
 
           <div class="input-box">
             <img src="assets/phone.svg" alt="">
-            <input type="text" placeholder="Phone">
+            <input type="text" name="phone" placeholder="Phone">
           </div>
 
           <div class="input-box textarea-box">
             <img src="assets/pesan.svg" alt="">
-            <textarea placeholder="Message"></textarea>
+            <textarea name="comment" placeholder="Message"></textarea>
           </div>
 
           <button type="submit">
@@ -266,6 +266,27 @@
   </div>
 </section>
 
+<!-- ONLY ADD SCRIPT (TIDAK SENTUH UI) -->
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbyoQOInEKuhytrSJQiJR6n3u-Tu2e714HyPl6Jo0d_sIv0jNWwjlyUCiAUloawFmO-I/exec";
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    alert("Terkirim 🚀");
+    form.reset();
+  })
+  .catch(() => {
+    alert("Gagal 😢");
+  });
+});
+</script>
 
 <!-- =========================================
      CONTACT PLATFORM SECTION
