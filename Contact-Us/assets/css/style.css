@@ -2622,65 +2622,49 @@ form{
 @media (max-width: 991px){
 
     .idea-wrapper{
-
         flex-direction: column;
-
         align-items: flex-start;
-
         padding: 50px 34px;
-
         gap: 10px;
-
         text-align: left;
 
-        /* =========================
-           DIUBAH
-           kasih jarak kanan kiri
-        ========================= */
         width: calc(100% - 48px);
-
         margin: 0 auto;
     }
 
     .idea-content{
-
         margin-left: 0;
-
         max-width: 100%;
-
         align-items: flex-start;
     }
 
     .idea-title{
-
         font-size: 2rem;
     }
 
     .idea-desc{
         max-width: 100%;
-
         margin-bottom: 30px;
     }
 
     .idea-image{
-
         width: 100%;
         max-width: 420px;
-
         height: auto;
-
         margin-top: 10px;
 
-        /* =========================
-           DIUBAH
-           hp lebih ke kanan
-        ========================= */
-        margin-right: -30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
 
-        align-self: flex-end;
+        align-self: center;
     }
-
 }
+
+
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 768px){
 
@@ -2689,19 +2673,10 @@ form{
     }
 
     .idea-wrapper{
-
-        /* =========================
-           DIUBAH
-           width biar kanan kiri balance
-        ========================= */
         width: calc(100% - 40px);
-
         margin: 0 auto;
-
         padding: 38px 22px;
-
         border-radius: 20px;
-
         text-align: left;
     }
 
@@ -2710,88 +2685,60 @@ form{
     }
 
     .idea-title{
-
         font-size: 1.7rem;
-
         line-height: 1.18;
     }
 
     .idea-desc{
         font-size: .8rem;
-
         line-height: 1.6;
     }
 
     .idea-btn{
         font-size: .92rem;
-
         padding: 11px 18px;
     }
 
     .idea-image{
-
         max-width: 310px;
-
         margin-top: 10px;
 
-        /* =========================
-           DIUBAH
-           hp mobile ke kanan
-        ========================= */
-        margin-right: -35px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
 
-        align-self: flex-end;
+        align-self: center;
     }
 
-    /* =========================
-       DIUBAH
-       ornament kiri mobile
-    ========================= */
-
     .ornament-left{
-
         width: 190px;
-
         left: -80px;
         top: 140px;
-
         opacity: .85;
     }
 
-    /* =========================
-       DIUBAH
-       ornament kanan mobile
-    ========================= */
-
     .ornament-right{
-
         width: 160px;
-
         right: -50px;
         top: 20px;
-
         opacity: .9;
     }
-
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 480px){
 
     .idea-wrapper{
-
-        /* =========================
-           DIUBAH
-           width hp kecil
-        ========================= */
         width: calc(100% - 32px);
-
         margin: 0 auto;
-
         padding: 34px 18px;
     }
 
     .idea-title{
-
         font-size: 1.45rem;
     }
 
@@ -2799,38 +2746,25 @@ form{
         font-size: .76rem;
     }
 
+    /* ✅ FIX UTAMA: CENTER HP */
     .idea-image{
-
         max-width: 310px;
 
-        /* =========================
-           DIUBAH
-           hp kecil ke kanan
-        ========================= */
-        margin-right: -35px;
+        display: block;
+        margin: 10px auto 0 auto;
 
-        align-self: flex-end;
+        align-self: center;
     }
 
-    /* =========================
-       DIUBAH
-       ornament hp kecil
-    ========================= */
-
     .ornament-left{
-
         width: 250px;
-
         left: 15px;
         top: 190px;
     }
 
     .ornament-right{
-
         width: 200px;
-
         right: 18px;
         top: 70px;
     }
-
 }
