@@ -274,21 +274,25 @@ const form = document.getElementById("contactForm");
 form.addEventListener("submit", e => {
   e.preventDefault();
 
+  console.log("FORM SUBMIT TERPANGGIL");
+
   fetch(scriptURL, {
     method: "POST",
     body: new FormData(form)
   })
-  .then(response => response.text())
-  .then(data => {
+  .then(async (res) => {
+    const text = await res.text();
+    console.log("RESPON:", text);
     alert("Terkirim 🚀");
     form.reset();
   })
-  .catch(error => {
-    alert("Gagal 😢");
-    console.log(error);
+  .catch(err => {
+    console.log("ERROR FETCH:", err);
+    alert("Gagal 😢 cek console");
   });
 });
 </script>
+
 
 <!-- =========================================
      CONTACT PLATFORM SECTION
