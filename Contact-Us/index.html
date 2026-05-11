@@ -278,12 +278,14 @@ form.addEventListener("submit", e => {
     method: "POST",
     body: new FormData(form)
   })
-  .then(() => {
-    alert("Terkirim ");
+  .then(response => response.text())
+  .then(data => {
+    alert("Terkirim 🚀");
     form.reset();
   })
-  .catch(() => {
-    alert("Gagal ");
+  .catch(error => {
+    alert("Gagal 😢");
+    console.log(error);
   });
 });
 </script>
