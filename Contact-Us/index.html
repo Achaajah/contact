@@ -224,76 +224,109 @@
       <!-- form -->
       <div class="contact-form">
 
-        <h2>
-          Mari Kirim Pesan <br>
-          dan <span>Terhubung</span>
-        </h2>
+  <h2>
+    Mari Kirim Pesan <br>
+    dan <span>Terhubung</span>
+  </h2>
 
-        <!-- FORM TETAP SAMA VISUALNYA, CUMA DITAMBAH ID + NAME -->
-        <form id="contactForm" method="">
+  <!-- FORM -->
+  <form id="contactForm">
 
-          <div class="input-box">
-            <img src="assets/nama.svg" alt="">
-            <input type="text" name="username" placeholder="Name">
-          </div>
-
-          <div class="input-box">
-            <img src="assets/email.svg" alt="">
-            <input type="email" name="email" placeholder="Email">
-          </div>
-
-          <div class="input-box">
-            <img src="assets/phone.svg" alt="">
-            <input type="text" name="phone" placeholder="Phone">
-          </div>
-
-          <div class="input-box textarea-box">
-            <img src="assets/pesan.svg" alt="">
-            <textarea name="comment" placeholder="Message"></textarea>
-          </div>
-
-          <button type="submit">
-            <img src="assets/Pesawat.svg" alt="">
-            Submit
-          </button>
-
-        </form>
-
-      </div>
-
+    <div class="input-box">
+      <img src="assets/nama.svg" alt="">
+      <input 
+        type="text" 
+        name="username" 
+        placeholder="Name"
+        required
+      >
     </div>
 
-  </div>
-</section>
+    <div class="input-box">
+      <img src="assets/email.svg" alt="">
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email"
+        required
+      >
+    </div>
 
-<!-- ONLY ADD SCRIPT (TIDAK SENTUH UI) -->
+    <div class="input-box">
+      <img src="assets/phone.svg" alt="">
+      <input 
+        type="text" 
+        name="phone" 
+        placeholder="Phone"
+        required
+      >
+    </div>
+
+    <div class="input-box textarea-box">
+      <img src="assets/pesan.svg" alt="">
+      <textarea 
+        name="comment" 
+        placeholder="Message"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit">
+      <img src="assets/Pesawat.svg" alt="">
+      Submit
+    </button>
+
+  </form>
+
+</div>
+
+<!-- SCRIPT -->
 <script>
+
 const scriptURL = "https://script.google.com/macros/s/AKfycbw0lP_WzkrDdeBs9kKPfJHXIrBNshVKgrFlRKU0kp48WZoc6UoUYA4YA1CZ3RuFzXOIKA/exec";
+
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", async (e) => {
+
   e.preventDefault();
 
-  console.log("FORM SUBMIT TERPANGGIL");
+  try {
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: new FormData(form)
-  })
-  .then(async (res) => {
-    const text = await res.text();
-    console.log("RESPON:", text);
-    alert("Terkirim 🚀");
-    form.reset();
-  })
-  .catch(err => {
-    console.log("ERROR FETCH:", err);
-    alert("Gagal 😢 cek console");
-  });
+    const response = await fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    });
+
+    const result = await response.text();
+
+    console.log(result);
+
+    if(result.includes("SUCCESS")) {
+
+      alert("Terkirim 🚀");
+
+      form.reset();
+
+    } else {
+
+      alert("Gagal kirim 😢");
+
+      console.log(result);
+
+    }
+
+  } catch(error) {
+
+    console.log(error);
+
+    alert("Error koneksi 😢");
+
+  }
+
 });
+
 </script>
-
-
 <!-- =========================================
      CONTACT PLATFORM SECTION
 ========================================= -->
