@@ -230,7 +230,7 @@
         </h2>
 
         <!-- FORM TETAP SAMA VISUALNYA, CUMA DITAMBAH ID + NAME -->
-        <form id="contactForm">
+        <form id="contactForm" method="">
 
           <div class="input-box">
             <img src="assets/nama.svg" alt="">
@@ -279,11 +279,11 @@ form.addEventListener("submit", e => {
     body: new FormData(form)
   })
   .then(() => {
-    alert("Terkirim 🚀");
+    alert("Terkirim ");
     form.reset();
   })
   .catch(() => {
-    alert("Gagal 😢");
+    alert("Gagal ");
   });
 });
 </script>
