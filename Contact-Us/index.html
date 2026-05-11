@@ -283,46 +283,15 @@
 <!-- SCRIPT -->
 <script>
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbw0lP_WzkrDdeBs9kKPfJHXIrBNshVKgrFlRKU0kp48WZoc6UoUYA4YA1CZ3RuFzXOIKA/exec";
-
 const form = document.getElementById("contactForm");
+
+console.log(form);
 
 form.addEventListener("submit", async (e) => {
 
   e.preventDefault();
 
-  try {
-
-    const response = await fetch(scriptURL, {
-      method: "POST",
-      body: new FormData(form)
-    });
-
-    const result = await response.text();
-
-    console.log(result);
-
-    if(result.includes("SUCCESS")) {
-
-      alert("Terkirim 🚀");
-
-      form.reset();
-
-    } else {
-
-      alert("Gagal kirim 😢");
-
-      console.log(result);
-
-    }
-
-  } catch(error) {
-
-    console.log(error);
-
-    alert("Error koneksi 😢");
-
-  }
+  alert("JS JALAN 🚀");
 
 });
 
