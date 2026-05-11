@@ -224,78 +224,75 @@
       <!-- form -->
       <div class="contact-form">
 
-  <h2>
-    Mari Kirim Pesan <br>
-    dan <span>Terhubung</span>
-  </h2>
+        <h2>
+          Mari Kirim Pesan <br>
+          dan <span>Terhubung</span>
+        </h2>
 
-  <!-- FORM -->
-  <form id="contactForm">
+        <!-- FORM TETAP SAMA VISUALNYA, CUMA DITAMBAH ID + NAME -->
+        <form id="contactForm" method="">
 
-    <div class="input-box">
-      <img src="assets/nama.svg" alt="">
-      <input 
-        type="text" 
-        name="username" 
-        placeholder="Name"
-        required
-      >
+          <div class="input-box">
+            <img src="assets/nama.svg" alt="">
+            <input type="text" name="username" placeholder="Name">
+          </div>
+
+          <div class="input-box">
+            <img src="assets/email.svg" alt="">
+            <input type="email" name="email" placeholder="Email">
+          </div>
+
+          <div class="input-box">
+            <img src="assets/phone.svg" alt="">
+            <input type="text" name="phone" placeholder="Phone">
+          </div>
+
+          <div class="input-box textarea-box">
+            <img src="assets/pesan.svg" alt="">
+            <textarea name="comment" placeholder="Message"></textarea>
+          </div>
+
+          <button type="submit">
+            <img src="assets/Pesawat.svg" alt="">
+            Submit
+          </button>
+
+        </form>
+
+      </div>
+
     </div>
 
-    <div class="input-box">
-      <img src="assets/email.svg" alt="">
-      <input 
-        type="email" 
-        name="email" 
-        placeholder="Email"
-        required
-      >
-    </div>
+  </div>
+</section>
 
-    <div class="input-box">
-      <img src="assets/phone.svg" alt="">
-      <input 
-        type="text" 
-        name="phone" 
-        placeholder="Phone"
-        required
-      >
-    </div>
-
-    <div class="input-box textarea-box">
-      <img src="assets/pesan.svg" alt="">
-      <textarea 
-        name="comment" 
-        placeholder="Message"
-        required
-      ></textarea>
-    </div>
-
-    <button type="submit">
-      <img src="assets/Pesawat.svg" alt="">
-      Submit
-    </button>
-
-  </form>
-
-</div>
-
-<!-- SCRIPT -->
+<!-- ONLY ADD SCRIPT (TIDAK SENTUH UI) -->
 <script>
-
+const scriptURL = "https://script.google.com/macros/s/AKfycbw0lP_WzkrDdeBs9kKPfJHXIrBNshVKgrFlRKU0kp48WZoc6UoUYA4YA1CZ3RuFzXOIKA/exec";
 const form = document.getElementById("contactForm");
 
-console.log(form);
-
-form.addEventListener("submit", async (e) => {
-
+form.addEventListener("submit", e => {
   e.preventDefault();
 
-  alert("JS JALAN 🚀");
+  console.log("FORM SUBMIT TERPANGGIL");
 
+  fetch(scriptURL, {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(async (res) => {
+    const text = await res.text();
+    console.log("RESPON:", text);
+    alert("Terkirim 🚀");
+    form.reset();
+  })
+  .catch(err => {
+    console.log("ERROR FETCH:", err);
+    alert("Gagal 😢 cek console");
+  });
 });
-
 </script>
+
 <!-- =========================================
      CONTACT PLATFORM SECTION
 ========================================= -->
