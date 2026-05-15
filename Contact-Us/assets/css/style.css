@@ -2043,23 +2043,29 @@ form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    /* =========================
-       DIUBAH
-       gap diperkecil
-    ========================= */
     gap: 18px;
 }
 
+.grid{
+    max-width: 1080px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    /* CARD BAWAH NAIK */
+    margin-top: 20px;
+}
 /* =========================================
    CARD
 ========================================= */
 
-.platform-card{
+.platform-card,
+.platform-card1,
+.platform-card2{
 
-    /* =========================
-       DIUBAH
-       padding diperkecil
-    ========================= */
     padding: 20px;
 
     border-radius: 16px;
@@ -2067,7 +2073,13 @@ form{
     border: 1px solid rgba(214, 194, 106, 0.7);
 
     transition: 0.3s ease;
-	cursor: pointer;
+
+    cursor: pointer;
+
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 /* =========================================
@@ -2189,14 +2201,53 @@ form{
 
     .platform-grid{
         grid-template-columns: 1fr;
+        gap: 20px;
     }
+
+    .grid{
+        grid-template-columns: 1fr;
+
+        /* JARAK CARD 2 & 3 */
+        margin-top: 20px;
+
+        gap: 20px;
+    }
+
+    /* MOBILE COLOR FIX */
+
+    .grid .white-card{
+        background: #3E7D77;
+    }
+
+    .grid .white-card h3,
+    .grid .white-card p{
+        color: white;
+    }
+
+    .grid .green-card{
+        background: #ECECEC;
+    }
+
+    .grid .green-card h3,
+    .grid .green-card p{
+        color: #111;
+    }
+.linkedin-icon{
+    filter: brightness(0) invert(1);
+}
+
+/* IG HITAM */
+
+.ig-icon{
+    filter: brightness(0);
+}
 
 }
 
 @media (max-width: 768px){
 
     .platform-section{
-        padding: 90px 0;
+        padding: 90px 14px;
     }
 
     .platform-title{
@@ -2280,7 +2331,19 @@ form{
 
     max-width: 650px;
 }
+.maps-text p{
+    margin-top: 14px;
 
+    max-width: 560px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.75);
+}
 .maps-top h2 span{
     color: #D6C26A;
 }
@@ -2380,8 +2443,25 @@ form{
         padding: 90px 0;
     }
 
+    .maps-top,
+    .card-maps{
+        width: calc(100% - 28px);
+    }
+
     .maps-top{
-        margin-bottom: 30px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .maps-top h2{
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .maps-text p{
+        font-size: .85rem;
+        line-height: 1.7;
     }
 
     .maps-button{
@@ -2397,7 +2477,6 @@ form{
     }
 
 }
-
 /* =========================================
    IDEA SECTION
 ========================================= */
@@ -2659,6 +2738,7 @@ form{
 
         align-self: center;
     }
+
 }
 
 
