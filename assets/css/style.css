@@ -2791,15 +2791,15 @@ form{
 
     .ornament-left{
         width: 190px;
-        left: -80px;
-        top: 140px;
+        left: 0px;
+        bottom: -10px;
         opacity: .85;
     }
 
     .ornament-right{
         width: 160px;
-        right: -50px;
-        top: 20px;
+        right: 0px;
+        top: 0px;
         opacity: .9;
     }
 }
@@ -2837,13 +2837,13 @@ form{
 
     .ornament-left{
         width: 250px;
-        left: 15px;
-        top: 190px;
+        left: 0px;
+        bottom: 0px;
     }
 
     .ornament-right{
         width: 200px;
-        right: 18px;
-        top: 70px;
+        right: 0px;
+        top: 0px;
     }
 }
